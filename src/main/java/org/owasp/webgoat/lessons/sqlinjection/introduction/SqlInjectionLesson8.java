@@ -63,7 +63,11 @@ public class SqlInjectionLesson8 implements AssignmentEndpoint {
 
         if (results.getStatement() != null) {
           if (results.first()) {
-            output.append("<p>Search results for: " + name + " (authorization token: " + auth_tan + ")</p>");
+            output.append("<p>Search results for: <span class='search-name'>")
+                .append(name)
+                .append("</span> (authorization token: <span class='search-token'>")
+                .append(auth_tan)
+                .append("</span>)</p>");
             output.append(generateTable(results));
             results.last();
 
